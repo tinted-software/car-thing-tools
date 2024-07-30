@@ -1,0 +1,7 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[patch.crates-io]
+# See https://github.com/mlua-rs/luau-src-rs/issues/3
+luau0-src = { git = "https://github.com/theoparis/luau-src-rs-libcxx" }

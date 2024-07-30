@@ -1,1 +1,4 @@
 #+title: Car Thing Tools
+
+This repository contains work in progress tools that can be used to flash your Spotify Car Thing with a custom Linux system.
+
