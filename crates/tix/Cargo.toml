@@ -1,0 +1,14 @@
+[package]
+name = "tix"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.86"
+blake3 = { version = "1.5.3", features = ["pure"] }
+cpio = "0.4.0"
+gix = { git = "https://github.com/Byron/gitoxide.git", features = ["blocking-network-client"] }
+mlua = { version = "0.9.9", default-features = false, features = ["luau"] }
+tokio = { version = "1.39.2", features = ["full"] }
+zstd = { version = "0.13.2", features = ["bindgen", "pkg-config"] }
+
