@@ -19,7 +19,7 @@ enum SubCommand {
 	FindDevice,
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn core::error::Error>> {
 	let args = Cli::parse();
 
 	match args.command {
@@ -27,7 +27,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 	}
 }
 
-fn find_device() -> Result<(), Box<dyn std::error::Error>> {
+fn find_device() -> Result<(), Box<dyn core::error::Error>> {
 	for device in rusb::devices()?.iter() {
 		let device_descriptor = device.device_descriptor()?;
 

@@ -7,3 +7,6 @@ description = "A tool to interact with Car Thing devices"
 [dependencies]
 clap = { version = "4.5.11", features = ["derive"] }
 rusb = "0.9.4"
+
+[lints]
+workspace = true
