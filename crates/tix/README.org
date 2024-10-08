@@ -1,4 +1,0 @@
-#+title: Tix
-
-Tix is a flexible package manager inspired by Nix and written in Rust. It uses Luau for configuring packages and systems.
-
