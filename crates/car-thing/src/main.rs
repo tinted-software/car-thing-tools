@@ -9,38 +9,38 @@ const NORMAL_ID_PRODUCT: u16 = 0x4e40;
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Cli {
-    #[clap(subcommand)]
-    command: SubCommand,
+	#[clap(subcommand)]
+	command: SubCommand,
 }
 
 #[derive(Subcommand)]
 enum SubCommand {
-    /// Find car thing devices and print the device mode
-    FindDevice,
+	/// Find car thing devices and print the device mode
+	FindDevice,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let args = Cli::parse();
+	let args = Cli::parse();
 
-    match args.command {
-        SubCommand::FindDevice => find_device(),
-    }
+	match args.command {
+		SubCommand::FindDevice => find_device(),
+	}
 }
 
 fn find_device() -> Result<(), Box<dyn std::error::Error>> {
-    for device in rusb::devices()?.iter() {
-        let device_descriptor = device.device_descriptor()?;
+	for device in rusb::devices()?.iter() {
+		let device_descriptor = device.device_descriptor()?;
 
-        if device_descriptor.vendor_id() == DEV_ID_VENDOR
-            && device_descriptor.product_id() == DEV_ID_PRODUCT
-        {
-            println!("Found device booted in USB burn mode");
-        } else if device_descriptor.vendor_id() == NORMAL_ID_VENDOR
-            && device_descriptor.product_id() == NORMAL_ID_PRODUCT
-        {
-            println!("Found device booted in normal mode");
-        }
-    }
+		if device_descriptor.vendor_id() == DEV_ID_VENDOR
+			&& device_descriptor.product_id() == DEV_ID_PRODUCT
+		{
+			println!("Found device booted in USB burn mode");
+		} else if device_descriptor.vendor_id() == NORMAL_ID_VENDOR
+			&& device_descriptor.product_id() == NORMAL_ID_PRODUCT
+		{
+			println!("Found device booted in normal mode");
+		}
+	}
 
-    Ok(())
+	Ok(())
 }
