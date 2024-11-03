@@ -1,37 +1,4 @@
-use clap::{Parser, Subcommand};
 use rusb::{Device, Devices, GlobalContext};
-
-#[derive(Parser)]
-#[command(version, about, long_about = None)]
-struct Cli {
-	#[clap(subcommand)]
-	command: SubCommand,
-}
-
-#[derive(Subcommand)]
-enum SubCommand {
-	/// Find car thing devices and print the device mode
-	FindDevice,
-}
-
-fn main() -> Result<(), Box<dyn core::error::Error>> {
-	let args = Cli::parse();
-
-	match args.command {
-		SubCommand::FindDevice => {
-			let devices = rusb::devices()?;
-
-			for car_thing in CarThings(devices.iter()) {
-				println!(
-					"Found car thing booted in {:?} mode",
-					car_thing.mode()?
-				);
-			}
-		}
-	}
-
-	Ok(())
-}
 
 const DEV_ID_VENDOR: u16 = 0x1B8E;
 const DEV_ID_PRODUCT: u16 = 0xC003;
