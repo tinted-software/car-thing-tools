@@ -1,5 +1,5 @@
 [package]
-name = "car-thing"
+name = "car-thing-bin"
 version = "0.1.0"
 edition = "2021"
 description = "A tool to interact with Car Thing devices"
@@ -7,6 +7,7 @@ description = "A tool to interact with Car Thing devices"
 [dependencies]
 clap = { version = "4.5.11", features = ["derive"] }
 rusb = "0.9.4"
+car-thing-lib = { path = "../car-thing-lib" }
 
 [lints]
 workspace = true

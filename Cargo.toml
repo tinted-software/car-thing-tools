@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["crates/*"]
+members = ["crates/car-thing-bin", "crates/car-thing-lib"]
 
 [workspace.lints.clippy]
 std_instead_of_core = "warn"

@@ -52,10 +52,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "car-thing"
+name = "car-thing-bin"
 version = "0.1.0"
 dependencies = [
+ "car-thing-lib",
  "clap",
+ "rusb",
+]
+
+[[package]]
+name = "car-thing-lib"
+version = "0.1.0"
+dependencies = [
  "rusb",
 ]
 
